@@ -1,12 +1,23 @@
-import React from "react"
+import React, { useState } from "react"
 import Square from "./Square"
 
 export default function Board(props) {
+    const [xTurn, setXTurn] = useState(true);
+    var initalSquares = Array(props.n ** 2).fill("");
+    const [squares, setSquares] = useState([...initalSquares]);
+
     function renderSquare(i) {
+        function mark(id) {
+            setXTurn(!xTurn);
+            var newSquares = squares;
+            newSquares[id] = xTurn ? "X" : "O";
+            setSquares([...newSquares])
+        }
+
         return (
             <Square 
-                value=""
-                onClick={() => console.log(i)}
+                value={squares[i]}
+                onClick={() => {mark(i)}}
                 key={i}
             />
         )
@@ -21,15 +32,11 @@ export default function Board(props) {
             )
         }
         b.push(
-            <div className="board-row" key={i}>
-                {c}
-            </div>
+            <div className="board-row" key={i}>{c}</div>
         )
     }
     return (
-        <div className="board">
-            {b}
-        </div>
+        <div className="board">{b}</div>
     )
 }
 
