@@ -32,6 +32,19 @@ ol, ul {
     width: 60px;
 }
 
+.board-row:not(:last-child) .square:not(:last-child) {
+    border-right: none;
+    border-bottom: none;
+}
+
+.board-row:last-child .square:not(:last-child) {
+    border-right: none;
+}
+
+.board-row:not(:last-child) .square:last-child {
+    border-bottom: none;
+}
+
 .square:focus {
     outline: none;
 }
