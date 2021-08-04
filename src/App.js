@@ -14,7 +14,7 @@ function App() {
     function handleChange1(e) {
         e.preventDefault()
         setNum1(num)
-        document.getElementById("aa").style.display = "none"
+        // document.getElementById("aa").style.display = "none"
     }
     return (
         <div>

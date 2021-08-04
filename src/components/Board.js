@@ -1,16 +1,21 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Square from "./Square"
 
 export default function Board(props) {
     const [xTurn, setXTurn] = useState(true);
-    var initalSquares = Array(props.n ** 2).fill("");
-    const [squares, setSquares] = useState([...initalSquares]);
+    const [squares, setSquares] = useState([]);
+
+    useEffect(() => {
+        setSquares([]);
+    }, [props.n])
 
     function renderSquare(i) {
         function mark(id) {
             setXTurn(!xTurn);
             var newSquares = squares;
-            newSquares[id] = xTurn ? "X" : "O";
+            if (typeof newSquares[id] === 'undefined') {
+                newSquares[id] = xTurn ? "X" : "O";
+            }
             setSquares([...newSquares])
         }
 
