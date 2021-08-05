@@ -6,6 +6,5 @@ export default function CheckWin(n) {
 
     useEffect(() => {}, xTurn)
 
-
     return isEnded
 }
