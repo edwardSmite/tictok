@@ -55,13 +55,18 @@ ol, ul {
 
 .game {
     display: flex;
-    height: 95vh;
+    height: 85vh;
     align-items: center;
     flex-direction: row;
     justify-content: center;
+    text-align: center;
 }
 
 .game-info {
     margin-left: 20px;
+}
+
+#aa {
+    display: none;
 }
   

@@ -2,27 +2,26 @@ import React, { useEffect, useState } from "react"
 import Square from "./Square"
 
 export default function Board(props) {
-    const [xTurn, setXTurn] = useState(true);
-    const [squares, setSquares] = useState([]);
+    const [xTurn, setXTurn] = useState(true)
+    const [squares, setSquares] = useState([])
 
     useEffect(() => {
-        setSquares([]);
+        setSquares([])
     }, [props.n])
 
     function renderSquare(i) {
-        function mark(id) {
-            setXTurn(!xTurn);
-            var newSquares = squares;
-            if (typeof newSquares[id] === 'undefined') {
-                newSquares[id] = xTurn ? "X" : "O";
-            }
+        function sthing(id) {            
+            var newSquares = squares
+            if (typeof newSquares[id] === "undefined") {
+                setXTurn(!xTurn)
+                newSquares[id] = xTurn ? "X" : "O"
+            } 
             setSquares([...newSquares])
         }
-
         return (
             <Square 
                 value={squares[i]}
-                onClick={() => {mark(i)}}
+                onClick={() => {sthing(i)}}
                 key={i}
             />
         )
@@ -40,8 +39,14 @@ export default function Board(props) {
             <div className="board-row" key={i}>{c}</div>
         )
     }
+    
     return (
-        <div className="board">{b}</div>
+        <div>
+            <h1 id="aa">Current: {xTurn ? "X" : "O"}</h1><br/><br/>
+            <div className="board">
+                {b}
+            </div>
+        </div>
     )
 }
 
