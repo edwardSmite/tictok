@@ -7,6 +7,10 @@ ol, ul {
     padding-left: 30px;
 }
 
+#aa {
+    display: none;
+}
+
 .board-row:after {
     clear: both;
     content: "";
@@ -21,15 +25,19 @@ ol, ul {
     background: #fff;
     border: 3px solid #999;
     float: left;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     line-height: 34px;
     height: 60px;
+    width: 60px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 60px;
+}
+
+.square:focus {
+    outline: none;
 }
 
 .board-row:not(:last-child) .square:not(:last-child) {
@@ -45,9 +53,7 @@ ol, ul {
     border-bottom: none;
 }
 
-.square:focus {
-    outline: none;
-}
+
 
 .kbd-navigation .square:focus {
     background: #ddd;
@@ -55,10 +61,11 @@ ol, ul {
 
 .game {
     display: flex;
-    height: 95vh;
-    align-items: center;
-    flex-direction: row;
+    height: 85vh;
+    align-items:center;
+    flex-direction: column;
     justify-content: center;
+    text-align: center;
 }
 
 .game-info {

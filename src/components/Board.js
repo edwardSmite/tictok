@@ -11,9 +11,9 @@ export default function Board(props) {
 
     function renderSquare(i) {
         function mark(id) {
-            setXTurn(!xTurn);
             var newSquares = squares;
             if (typeof newSquares[id] === 'undefined') {
+                setXTurn(!xTurn);
                 newSquares[id] = xTurn ? "X" : "O";
             }
             setSquares([...newSquares])
@@ -41,7 +41,12 @@ export default function Board(props) {
         )
     }
     return (
-        <div className="board">{b}</div>
+        <div className="game">
+            <h1 id="aa">Current: {xTurn ? "X" : "O"}</h1>
+            {/* <br></br> */}
+            {/* <br></br> */}
+            <div className="board">{b}</div>
+        </div>
     )
 }
 

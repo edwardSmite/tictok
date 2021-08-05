@@ -14,18 +14,15 @@ function App() {
     function handleChange1(e) {
         e.preventDefault()
         setNum1(num)
-        // document.getElementById("aa").style.display = "none"
+        document.getElementById("aa").style.display = "initial"
     }
     return (
         <div>
-            <form id="aa" onSubmit={handleChange1}>
+            <form onSubmit={handleChange1}>
                 <input type="text" onChange={handleChange}/>
-                <input type="submit" value="submit"/>
                 <br/>
             </form>
-        <div className="game">
             <Board n={num1}/>
-        </div>
         </div>
     )
 }
